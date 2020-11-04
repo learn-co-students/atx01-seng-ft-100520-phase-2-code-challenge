@@ -1,0 +1,10 @@
+<h2><%= "#{@guest.name}, #{@guest.occupation}" %></h2>
+<h2>Appearances</h2>
+<% @episodes.each do |e| %>
+  <li><%= link_to e.date, episode_path(e) %>
+  , Rating:
+  <% appearances = Appearance.select {|a| a.guest_id == @guest.id} %>
+  <% appearance = appearances.find {|a| a.episode_id == e.id} %>
+  <%= appearance.rating %>
+  </li>
+<% end %>
