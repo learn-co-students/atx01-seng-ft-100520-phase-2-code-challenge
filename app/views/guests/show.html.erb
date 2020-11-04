@@ -1,0 +1,10 @@
+<h1> Guest Show page </h1>
+
+
+<h2>Name: <%= @guest.name %></h2>
+
+<% @guest.episodes.each do |episode| %>
+<li><%= link_to guest.episode, episode_path(episode) %></li>
+<% end %>
+
+
