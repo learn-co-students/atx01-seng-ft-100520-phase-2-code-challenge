@@ -1,0 +1,20 @@
+<h1>This is the GUEST SHOW PAGE</h1>
+
+<p>Guest name:<%= @guest.name %></p><br>
+
+<p>Guest Occupation:<%= @guest.occupation %></p>
+
+
+<h1>Here is a list of the EPISODES this Guest has appeared in:</h1>
+
+<% @guest.appearances.each do |appearance| %>
+   <p>Appearance Date :<%= appearance.episode.date %></p><br>
+
+
+
+   <p>Appearance Date :<%= link_to appearance.episode.date, episode_path(appearance.episode) %></p><br>
+
+     
+   <p>Appearance Rating:<%= appearance.rating %><p> 
+
+<% end %>

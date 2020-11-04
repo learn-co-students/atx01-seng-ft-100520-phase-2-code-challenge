@@ -1,0 +1,35 @@
+<h1>This is my new appearances page</h1>
+
+<h2>I display the errors</h2>
+  <% if @appearance.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@appearance.errors.count, "error") %> not saved:</h2>
+ 
+    <ul>
+    <% @appearance.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for(@appearance) do |f| %>
+  <%= f.label :guest %>: 
+  <%= f.collection_select :guest_id, Guest.all, :id, :name%><br><br>
+
+  <%= f.label :episode %>:
+  <%= f.collection_select :episode_id, Episode.all, :id, :date %><br><br>
+
+  <%= f.label "Enter a rating from 1 to 5:" %>
+  <%
+=begin%>
+ <%= f.select :rating, (1..5)%><br><br> 
+<%
+=end%>
+
+<%= f.text_field :rating %><br><br>
+
+  <%= f.submit %>
+
+<% end %>
