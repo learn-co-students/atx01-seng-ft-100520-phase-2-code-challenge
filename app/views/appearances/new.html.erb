@@ -1,0 +1,26 @@
+<h1>New Appearance</h1>
+
+
+
+
+<%= form_for @appearance do |f| %>
+
+    <%= f.label :guest_id%>
+    <%= f.collection_select :guest_id, Guest.all, :id, :name, prompt: true  %><br /><br />
+    
+    <%= f.label :episode_id%>
+    <%= f.collection_select :episode_id, Episode.all, :id, :date, prompt: true  %><br /><br />
+
+    Please enter a rating (1-5):
+    <div><%= f.label :rating%>
+    <%= f.text_field :rating%><br /><br /></div>
+
+ <%= f.submit :Submit %>
+
+ <% if flash[:errors]%>
+<%flash[:errors].each do |e|%>
+<li style="color:red"><%=e%></li>
+
+<%end%><%=  %>
+<% end %>
+<% end %>
