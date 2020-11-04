@@ -1,0 +1,18 @@
+<h2>New Appearance</h2>
+
+<%= form_for @appearance do |f| %>
+  Episode: <%= f.collection_select :episode_id, Episode.all, :id, :date %>
+  Guest: <%= f.collection_select :guest_id, Guest.all, :id, :name %>
+  Rating: <%= f.text_field :rating %>
+  <%= f.submit %>
+  <% if @appearance.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @appearance.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% end %>
+
