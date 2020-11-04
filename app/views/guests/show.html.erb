@@ -1,0 +1,10 @@
+<h1>Guest Details</h1>
+
+<h3>Name: <%= @guest.name %></h3><br><br>
+<h3>Occupation: <%= @guest.occupation %></h3><br><br>
+<h3>Guests that appeared on this episode:</h3>
+<ul>
+  <% @guest.episodes.each do |episode| %>
+    <li><%= link_to episode.date, episode_path(episode) %> - Episode rating: <%= episode.rating %></li>
+  <% end %>
+</ul>
