@@ -2,6 +2,19 @@
 
 
 <%= form_for @appearance do |f|  %>
+    <% if @appearance.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@appearance.errors.count, "error") %> 
+            prohibited this appearance from being saved:</h2>
+
+        <ul>
+        <% @appearance.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
     <label> Episode: </label>
     <%= f.collection_select :episode_id, Episode.all, :id, :date %>
 
@@ -11,6 +24,8 @@
     <label> Rating: </label> 
     <%= f.number_field :rating %><br> <br>
 
-    <%= f.submit "Create apperance" %>
+    <%= f.submit "Create appearance" %>
 
+ 
 <% end %>
+

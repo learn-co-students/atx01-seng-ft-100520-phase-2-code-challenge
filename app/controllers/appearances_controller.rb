@@ -1,7 +1,7 @@
 class AppearancesController < ApplicationController
 
-    def apperance_params
-        params.require(:apperance).permit(:guest_id, :episode_id, :rating) 
+    def appearance_params
+        params.require(:appearance).permit(:guest_id, :episode_id, :rating) 
     end
 
     def new 
@@ -10,7 +10,8 @@ class AppearancesController < ApplicationController
 
     def create
         @appearance = Appearance.new(appearance_params)
-        @apperance.save
+        @episode = Episode.find(appearance_params[:episode_id])
+        @appearance.save
         redirect_to episode_path(@episode)    
     end
 end
