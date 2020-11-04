@@ -2,6 +2,7 @@
 
 <h3>Episode date: <%= @episode.date %></h3><br><br>
 
+<h3>Episode rating: <%= @episode.get_rating %></h3><br>
 <h3>Guests that appeared on this episode:</h3>
 <ul>
   <% @episode.guests.each do |guest| %>

@@ -5,6 +5,6 @@
 <h3>Guests that appeared on this episode:</h3>
 <ul>
   <% @guest.episodes.each do |episode| %>
-    <li><%= link_to episode.date, episode_path(episode) %> - Episode rating: <%= episode.rating %></li>
+    <li><%= link_to episode.date, episode_path(episode) %> - Episode rating: <%= "#{episode.get_rating}" %></li>
   <% end %>
 </ul>
